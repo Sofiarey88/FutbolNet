@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FutbolNet.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Image
+                Source="dotnet_bot.png"
+                HeightRequest="185"
+                Aspect="AspectFit"
+                SemanticProperties.Description="dot net bot in a race car number eight" />
+
+            <Label
+                Text="Kenjhi FC"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+            <Button
+                Text="JugadorView"
+                Clicked="JugadorBtn_Clicked"
+                HorizontalOptions="Fill" />
+            <Button
+                Text="LigaView"
+                Clicked="LigaBtn_Clicked_1"  
+                HorizontalOptions="Fill" />
+            <Button
+                Text="EntrenadorView"
+                Clicked="EntrenadorBtn_Clicked_1"
+                HorizontalOptions="Fill" />
+            <Button
+                Text="EquipoView"
+                Clicked="EquipoBtn_Clicked"
+                HorizontalOptions="Fill" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

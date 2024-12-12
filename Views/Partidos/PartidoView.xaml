@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:viewmodels="clr-namespace:FutbolNet.ViewModels"
+             x:Class="FutbolNet.Views.Partidos.PartidoView"
+             Title="PartidoView">
+    <ContentPage.BindingContext>
+        <viewmodels:PartidosViewModel />
+    </ContentPage.BindingContext>
+
+  
+
+    <ScrollView>
+        <VerticalStackLayout Padding="15" Spacing="20">
+            <!-- Title -->
+            <Label Text="Agregar/Editar Partido"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               TextColor="White" />
+
+            <!-- Activity Indicator -->
+            <ActivityIndicator IsRunning="{Binding ActivityStart}"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+
+            <!-- Formulario de partido -->
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Fecha del partido" FontSize="Medium" TextColor="White" />
+                <DatePicker Date="{Binding Partido.Fecha}" />
+
+                <Label Text="Equipo local" FontSize="Medium" TextColor="White" />
+                <Picker ItemsSource="{Binding Equipos}" SelectedItem="{Binding EquipoLocal}" />
+                <Label Text="{Binding EquipoLocal.Nombre}" FontSize="Small" TextColor="White" />
+
+                <Label Text="Equipo visitante" FontSize="Medium" TextColor="White" />
+                <Picker ItemsSource="{Binding Equipos}" SelectedItem="{Binding EquipoVisitante}" />
+                <Label Text="{Binding EquipoVisitante.Nombre}" FontSize="Small" TextColor="White" />
+            </VerticalStackLayout>
+
+            <!-- Action Buttons (Vertical Layout) -->
+            <VerticalStackLayout Spacing="20" HorizontalOptions="Center">
+                <Button Text="Guardar"
+                    WidthRequest="150"
+                    Command="{Binding GuardarCommand}"
+                    BackgroundColor="#4CAF50"
+                    TextColor="Black"
+                    CornerRadius="25"
+                    Padding="10" />
+                <Button Text="Cancelar"
+                    WidthRequest="150"
+                    Command="{Binding CancelarCommand}"
+                    BackgroundColor="#F44336"
+                    TextColor="Black"
+                    CornerRadius="25"
+                    Padding="10" />
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
